@@ -14,11 +14,30 @@ namespace Paint
     {
 
         private PaintField paintField;
+        private PenSizeSelector sizeSelector = new PenSizeSelector();
 
         public MainFrame()
         {
             InitializeComponent();
             initMainPaintField();
+            initSizeSelector();
+        }
+
+        private void initSizeSelector()
+        {
+            sizeSelector.Location = new Point(100, 5);
+            for (int i = 1; i < 73; i++)
+            {
+                sizeSelector.Items.Add(i);
+            }
+            sizeSelector.SelectedValueChanged += selectPenSize;
+            this.InstrumentPanel.Controls.Add(sizeSelector);
+        }
+
+        private void selectPenSize(object sender, EventArgs e)
+        {
+            ComboBox tmp = (ComboBox)sender;
+            paintField.Pen.Width = int.Parse(tmp.SelectedItem.ToString());
         }
 
         private void initMainPaintField()

@@ -55,6 +55,9 @@
     <Compile Include="PaintField.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="PenSizeSelector.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainFrame.resx">
